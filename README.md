@@ -28,33 +28,7 @@ https://nodejs.org/en/download/
 npm install
 ```
 
-- `Step 3`: Create a `.env` file and insert your api key 
-
-_You can generate an api key by clicking on this link._
-
-- REACT_APP_APIKEY
-     - Step 1: Go to this url and sign up. https://openweathermap.org/current
-     - Step 2: Generate the API key in the My API Keys section and add that in .env file.
-- REACT_APP_GEOKEY
-    - Step 1: Go to this url and sign up. https://myprojects.geoapify.com/projects
-    - Step 2: Create a new project and under "Choose a Geoapify API" dropdown select "Places API".
-    ![](/src/assets/img/places.PNG)
-    - Step 3: Add the generated key in .env file.
-- REACT_APP_AUTOCOMPLETE_LOCATION_APIKEY
-    - Step 1: Same as above.
-    - Step 2: Create a new project and under "Choose a Geoapify API" dropdown select "Autocomplete API".
-    ![](/src/assets/img/autocomplete.PNG)
-    - Step 3: Add the generated key in .env file.
-
-Add the following in your `.env` file and replace `Your_Api_Key` with the api key generated
-
-```
-REACT_APP_APIKEY=Your_Api_Key
-REACT_APP_GEOKEY=Your_Api_Key
-REACT_APP_AUTOCOMPLETE_LOCATION_APIKEY=Your_Api_Key
-```
-
-- `Step 4`: Start the server.
+- `Step 3`: Start the server.
 
 ```bash
 npm start
@@ -199,18 +173,33 @@ $ docker build -t <image_name> -f <dockerfile_name> .
 
 ## Environment Variables
 
-Create a `.env` file to insert your api keys. _You can refer to the `example.env` format for more information._
+Create a `.env` file to insert your API keys. You can refer to the `example.env` format for more information.
 
-#### Weather API
 
-To generate an API key, follow the instructions below:
+##### REACT_APP_APIKEY
 
-- Click on this [link](https://openweathermap.org/) to access the website.
-- Sign in or Create a new account.
-- Navigate to the user account and click on **API keys** or **My API keys**.
+- `Step 1`: Go to this url and sign up. https://openweathermap.org/current
 
-Copy the API key and paste it in your `.env` file and replace `Your_Api_Key` with the API key generated
+- `Step 2`: Generate the API key in the My API Keys section and add that in `.env` file.
+
+##### REACT_APP_GEOKEY
+- `Step 1`: Go to this url and sign up. https://myprojects.geoapify.com/projects
+
+- `Step 2`: Create a new project and under "Choose a Geoapify API" dropdown select "Places API".
+    ![](/src/assets/img/places.PNG)
+
+- `Step 3`: Add the generated key in `.env` file.
+
+##### REACT_APP_AUTOCOMPLETE_LOCATION_APIKEY
+- `Step 1`: Same as above.
+- `Step 2`: Create a new project and under "Choose a Geoapify API" dropdown select "Autocomplete API".
+    ![](/src/assets/img/autocomplete.PNG)
+- `Step 3`: Add the generated key in `.env` file.
+
+Add the following in your `.env` file and replace `Your_Api_Key` with the API key generated
 
 ```
 REACT_APP_APIKEY=Your_Api_Key
+REACT_APP_GEOKEY=Your_Api_Key
+REACT_APP_AUTOCOMPLETE_LOCATION_APIKEY=Your_Api_Key
 ```
