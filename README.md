@@ -147,6 +147,29 @@ yarn
 ```bash
 yarn start
 ```
+### Docker Development Environment
+
+`!!! Have your environment file ready before running the container !!!` <br>
+
+
+This project contains 2 Dockerfiles := `Dockerfile.dev` and `Dockerfile.prod` for development and production environment respectively.
+
+These 2 enviroments are :-
+1. <b>react-dev</b> := For running the app in development setting 
+2. <b>react-prod</b> := For running on production ecosystem.
+
+In order to run them simply choose from one of the above and replace them for `env-name`
+  
+```console
+$ docker-compose up <env-name>
+```
+Both of these environment would be live at **localhost:3000**
+
+#### Make Your Own Image
+To make your own image, choose from any of the above mentioned Dockerfile and simply run 
+```console
+$ docker build -t <image_name> -f <dockerfile_name> .
+```
 
 ## Environment Variables
 
