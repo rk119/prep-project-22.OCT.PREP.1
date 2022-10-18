@@ -85,3 +85,89 @@ _Note_: The **yarn.lock** may cause issues with the installation of dependencies
 ```bash
 yarn start
 ```
+### Linux
+#### Using npm
+
+- `Step 1`: Install the Curl Command-Line Tool
+
+_You can skip this step if you have curl installed on your system._
+
+```bash
+sudo apt install curl
+```
+
+- `Step 2`: Install Node.js and npm
+
+_You can skip this step if you have node installed on your system. Make sure it is the latest stable version._
+
+Open the link below to install Node.js and npm for your specific distribution.
+
+https://github.com/nodesource/distributions/blob/master/README.md
+
+- `Step 3`: Install all the dependencies
+
+```bash
+npm install
+```
+
+- `Step 4`: Create a `.env` file and insert your api key 
+
+_You can generate an api key by clicking on this link._
+
+https://openweathermap.org/current
+
+Add the following in your `.env` file and replace `Your_Api_Key` with the api key generated
+
+```
+REACT_APP_APIKEY=Your_Api_Key
+```
+
+- `Step 5`: Start the server.
+
+```bash
+npm start
+```
+
+You can view your project at `http://localhost:3000/`.
+
+#### Using yarn
+- `Step 1`: Install the Curl Command-Line Tool
+
+_You can skip this step if you have curl installed on your system._
+
+```bash
+sudo apt install curl
+```
+
+- `Step 2`: Install Node.js and npm
+
+_You can skip this step if you have node installed on your system. Make sure it is the latest stable version._
+
+Open the link below to install Node.js and npm for your specific distribution.
+
+https://github.com/nodesource/distributions/blob/master/README.md
+
+- `Step 3`: Install yarn
+
+_You can skip this if you have the yarn installed on your system. Make sure it is the latest stable version._
+
+```bash
+npm install --global yarn
+```
+
+- `Step 4`: Install the dependencies
+
+```bash
+yarn install
+```
+or simply
+
+```bash
+yarn 
+```
+
+- `Step 5`: Start the server
+
+```bash
+yarn start
+```
