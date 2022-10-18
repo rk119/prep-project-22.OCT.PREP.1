@@ -28,19 +28,7 @@ https://nodejs.org/en/download/
 npm install
 ```
 
-- `Step 3`: Create a `.env` file and insert your api key 
-
-_You can generate an api key by clicking on this link._
-
-https://openweathermap.org/current
-
-Add the following in your `.env` file and replace `Your_Api_Key` with the api key generated
-
-```
-REACT_APP_APIKEY=Your_Api_Key
-```
-
-- `Step 4`: Start the server.
+- `Step 3`: Start the server.
 
 ```bash
 npm start
@@ -110,19 +98,7 @@ https://github.com/nodesource/distributions/blob/master/README.md
 npm install
 ```
 
-- `Step 4`: Create a `.env` file and insert your api key 
-
-_You can generate an api key by clicking on this link._
-
-https://openweathermap.org/current
-
-Add the following in your `.env` file and replace `Your_Api_Key` with the api key generated
-
-```
-REACT_APP_APIKEY=Your_Api_Key
-```
-
-- `Step 5`: Start the server.
+- `Step 4`: Start the server.
 
 ```bash
 npm start
@@ -170,4 +146,22 @@ yarn
 
 ```bash
 yarn start
+```
+
+## Environment Variables
+
+Create a `.env` file to insert your api keys. _You can refer to the `example.env` format for more information._
+
+#### Weather API
+
+To generate an API key, follow the instructions below:
+
+- Click on this [link](https://openweathermap.org/) to access the website.
+- Sign in or Create a new account.
+- Navigate to the user account and click on **API keys** or **My API keys**.
+
+Copy the API key and paste it in your `.env` file and replace `Your_Api_Key` with the API key generated
+
+```
+REACT_APP_APIKEY=Your_Api_Key
 ```
