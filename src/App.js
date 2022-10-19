@@ -3,10 +3,12 @@ import "./App.css";
 import logo from "./mlh-prep.png";
 
 import ItemsNeeded from "./components/CarryItems/ItemsNeeded";
-
 import MapBox from "./components/Map/MapBox";
+import Sunset from "./components/sunTimings/Sunset";
+import Sunrise from "./components/sunTimings/Sunrise";
 import Forecast from "./components/Forecast/Forecast";
 import Places from "./components/Places/Places";
+import ResultCard from "./components/Card/ResultCard"
 
 // A timer to help while clearing setTimeout 
 // inside `debouncedSuggestLocations` function.
@@ -25,6 +27,9 @@ function App() {
 
   const [places, setPlaces] = useState([]);
   const [isPlacesLoaded, setIsPlacesLoaded] = useState(false);
+  const [sunrise, setSunrise] = useState("")
+  const [sunset, setSunset] = useState("")
+  const [timezone, setTimezone] = useState("")
   const [weatherType, setWeatherType] = useState("");
 
   const findUserLocation = position => {
@@ -99,6 +104,9 @@ function App() {
             setResults(result);
             setCoordinates(result.coord);
             setWeatherType(result.weather[0].main);
+            setSunrise(result.sys.sunrise);
+            setSunset(result.sys.sunset);
+            setTimezone(result.timezone)
           }
         },
         error => {
@@ -126,7 +134,7 @@ function App() {
       default:
         return "haze";
     }
-  };
+  }
 
   useEffect(() => {
     fetch(
@@ -180,6 +188,16 @@ function App() {
           autoComplete="off"
         />
 
+      <div className="">
+        <div className="container">
+          <Sunrise sunrise={sunrise} timezone={timezone} />
+        </div>
+
+        <div className="">
+          <Sunset sunset={sunset} timezone={timezone} />
+        </div>
+      </div>
+
         <datalist id="locations">
             { suggestedLocation.map((loc) => (
               <option key={loc.id}>{loc.location}</option>
@@ -193,33 +211,11 @@ function App() {
           setError={setError}
           setCity={setCity}
         />
-        <div className="Results">
-          {!isLoaded && error && (
-            <h3 style={{ color: "red" }}>{error.message}</h3>
-          )}
-          {isLoaded && results && (
-            <>
-              <img
-                src={
-                  "http://openweathermap.org/img/w/" +
-                  results.weather[0].icon +
-                  ".png"
-                }
-                alt="Weather icon"
-              />
-              <h3>{results.weather[0].main}</h3>
-              <p>{results.weather[0].description}</p>
-              <p>Feels like {results.main.feels_like}°C</p>
-              <p>Humidity {results.main.humidity}%</p>
-              <i>
-                <p>
-                  {results.name}, {results.sys.country}
-                </p>
-              </i>
-              <ItemsNeeded weatherKind={results.weather[0].main} />
-            </>
-          )}
-        </div>
+        <ResultCard 
+          results={results} 
+          isLoaded={isLoaded} 
+          error={error} 
+        />
         <div>
           <h2>
             Explore places nearby to <span className="places">{city}</span>
@@ -233,6 +229,5 @@ function App() {
       </div>
       <Forecast city={city} />
     </div>
-  );
-}
+  )};
 export default App;
